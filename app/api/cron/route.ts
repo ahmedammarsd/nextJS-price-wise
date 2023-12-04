@@ -61,9 +61,11 @@ export async function GET() {
             productInfo,
             emailNotifType
           );
+          // find all user that subscribed
           const userEmails = updatedProduct.users.map(
             (user: any) => user.email
           );
+          // send email for all users
           await sendEmail(emailContent, userEmails);
         }
 
